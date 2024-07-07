@@ -4,7 +4,7 @@
 - String
 - 2D Array
 - Bit Manipulation
-- Sorting
+- Searching and Sorting
 - Recursion
 - Backtracking
 

@@ -1,4 +1,4 @@
-package Sorting;
+package SearchingAndSorting;
 
 public class CeilingInSortedArray {
     public static int ceilSearch(int[] arr, int low, int high, int x){

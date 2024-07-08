@@ -7,6 +7,7 @@
 - Searching and Sorting
 - Recursion
 - Backtracking
+- ArrayList
 
 
 Visit: https://leetcode.com/u/Manshi_Rathour/ 

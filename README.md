@@ -8,5 +8,6 @@
 - Recursion
 - Backtracking
 - ArrayList
+- LinkedList
 
 

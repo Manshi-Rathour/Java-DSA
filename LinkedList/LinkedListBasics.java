@@ -87,6 +87,24 @@ public class LinkedListBasics {
          return size;
     }
 
+    // reverse the LinkedList
+    public void reverseList(){
+         if(head == null || head.next == null){
+             return;
+         }
+         Node prevNode = head;
+         Node currNode = head.next;
+         while(currNode != null){
+             Node nextNode = currNode.next;
+             currNode.next = prevNode;
+
+             // update
+             prevNode = currNode;
+             currNode = nextNode;
+         }
+         head.next = null;
+         head = prevNode;
+    }
 
     public static void main(String[] args) {
         LinkedListBasics list = new LinkedListBasics();
@@ -101,12 +119,15 @@ public class LinkedListBasics {
         list.addFirst("this");
         list.printList();
 
-        list.deleteFirst();
-        list.printList();
-
-        list.deleteLast();
-        list.printList();
+//        list.deleteFirst();
+//        list.printList();
+//
+//        list.deleteLast();
+//        list.printList();
 
         System.out.println("Size of the LinkedList is " + list.getSize());
+
+        list.reverseList();
+        list.printList();
     }
 }

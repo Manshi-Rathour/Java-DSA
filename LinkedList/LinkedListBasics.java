@@ -106,6 +106,18 @@ public class LinkedListBasics {
          head = prevNode;
     }
 
+    // reverse using recursion
+    public Node reverseRecursive(Node head){
+         if(head == null || head.next == null){
+             return head;
+         }
+         Node newHead = reverseRecursive(head.next);
+         head.next.next = head;
+         head.next = null;
+
+         return newHead;
+    }
+
     public static void main(String[] args) {
         LinkedListBasics list = new LinkedListBasics();
 
@@ -127,7 +139,8 @@ public class LinkedListBasics {
 
         System.out.println("Size of the LinkedList is " + list.getSize());
 
-        list.reverseList();
+//        list.reverseList();
+        list.head = list.reverseRecursive(list.head);
         list.printList();
     }
 }

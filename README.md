@@ -9,5 +9,7 @@
 - Backtracking
 - ArrayList
 - LinkedList
+- Stack
+- Queue
 
 

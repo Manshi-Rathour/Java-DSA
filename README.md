@@ -11,5 +11,6 @@
 - LinkedList
 - Stack
 - Queue
+- Tree
 
 

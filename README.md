@@ -12,5 +12,7 @@
 - Stack
 - Queue
 - Tree
+  - Binary Tree
+  - Binary Search Tree
 
 

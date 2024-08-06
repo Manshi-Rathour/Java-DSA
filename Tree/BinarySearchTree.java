@@ -85,10 +85,28 @@ public class BinarySearchTree {
         }
         return root;
     }
-    public static void main(String[] args) {
-        int[] values = {5, 1, 3, 4, 2, 7};
-        Node root = null;
 
+    // Print in Range X and Y
+    public static void printInRange(Node root, int X, int Y){
+        if(root == null){
+            return;
+        }
+        if(root.data >= X && root.data <= Y){
+            printInRange(root.left, X, Y);
+            System.out.print(root.data + " ");
+            printInRange(root.right, X, Y);
+        }
+        else if(root.data > X){
+            printInRange(root.left, X, Y);
+        }
+        else{
+            printInRange(root.right, X, Y);
+        }
+    }
+    public static void main(String[] args) {
+        int[] values = {1, 3, 4, 5, 6, 8, 10, 11, 14};
+        Node root = null;
+        // Creating a binary search tree
         for(int value : values){
             root = insert(root, value);
         }
@@ -96,6 +114,7 @@ public class BinarySearchTree {
         inorder(root);
         System.out.println();
 
+        // Searching in BST
         if(search(root, 3)){
             System.out.println("Found");
         }
@@ -103,7 +122,12 @@ public class BinarySearchTree {
             System.out.println("Not found");
         }
 
+        // Deleting a node in BST
         delete(root, 4);
         inorder(root);
+        System.out.println();
+
+        // Printing in range X and Y
+        printInRange(root, 6, 10);
     }
 }

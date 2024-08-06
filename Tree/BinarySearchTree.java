@@ -49,6 +49,9 @@ public class BinarySearchTree {
     }
     // Deleting a node
     public static Node delete(Node root, int val){
+        if(root == null){
+            return null;
+        }
         if(root.data > val){
             root.left = delete(root.left, val);
         }

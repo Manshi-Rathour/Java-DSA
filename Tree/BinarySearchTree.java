@@ -1,4 +1,5 @@
 package Tree;
+import java.util.ArrayList;
 
 public class BinarySearchTree {
     static class Node{
@@ -103,8 +104,34 @@ public class BinarySearchTree {
             printInRange(root.right, X, Y);
         }
     }
+
+    // Print all paths from root to leaf
+    public static void printRootToLeaf(Node root, ArrayList<Integer> path){
+        if(root == null){
+            return;
+        }
+        path.add(root.data);
+
+        // leaf
+        if(root.left == null && root.right == null){
+            printPath(path);
+        }
+        else{  // non leaf
+            printRootToLeaf(root.left, path);
+            printRootToLeaf(root.right, path);
+        }
+
+        path.removeLast();
+    }
+    public static void printPath(ArrayList<Integer> path){
+        for(int i : path){
+            System.out.print(i + "->");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        int[] values = {1, 3, 4, 5, 6, 8, 10, 11, 14};
+        int[] values = {8, 5, 3, 6, 10, 11, 14};
         Node root = null;
         // Creating a binary search tree
         for(int value : values){
@@ -129,5 +156,9 @@ public class BinarySearchTree {
 
         // Printing in range X and Y
         printInRange(root, 6, 10);
+        System.out.println();
+
+        // Printing all paths from root to leaf
+        printRootToLeaf(root, new ArrayList<>());
     }
 }

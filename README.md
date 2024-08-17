@@ -14,5 +14,8 @@
 - Tree
   - Binary Tree
   - Binary Search Tree
-
-
+- Hashing
+  - HashSet
+  - HashMap
+- Trie
+- Graph

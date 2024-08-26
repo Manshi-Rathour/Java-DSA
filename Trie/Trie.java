@@ -18,6 +18,7 @@ public class Trie {
 
     static Node root = new Node();
 
+    // insert - 0(L) - L : length of word
     public static void insert(String word){
         Node curr = root;
         for(int i=0; i<word.length(); i++){
@@ -36,6 +37,7 @@ public class Trie {
         }
     }
 
+    // search - 0(L) - L : length of word
     public static boolean search(String key){
         Node curr = root;
         for(int i=0; i<key.length(); i++){

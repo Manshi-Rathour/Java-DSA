@@ -46,7 +46,7 @@ public class Trie {
             if(node == null){
                 return false;
             }
-            if((i == key.length() - 1) && node.eow == false){
+            if((i == key.length() - 1) && (node.eow == false)){
                 return false;
             }
 

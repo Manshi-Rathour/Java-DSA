@@ -18,22 +18,16 @@ public class StartsWithProblem {
     static Node root = new Node();
 
     // insert - 0(L) - L : length of word
-    public static void insert(String word){
+    public static void insert(String word) {
         Node curr = root;
-        for(int i=0; i<word.length(); i++){
+        for (int i = 0; i < word.length(); i++) {
             int idx = word.charAt(i) - 'a';
-
-            if(curr.children[idx] == null){
-                // add new node
+            if (curr.children[idx] == null) {
                 curr.children[idx] = new Node();
             }
-
-            if(i == word.length() - 1){
-                curr.children[idx].eow = true;
-            }
-
             curr = curr.children[idx];
         }
+        curr.eow = true; // Mark the end of the word
     }
 
     public static boolean startsWith(String prefix){

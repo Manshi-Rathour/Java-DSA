@@ -2,7 +2,7 @@ package Graph;
 
 import java.util.*;
 
-public class BFS {
+public class DFS {
     static class Edge{
         int src;
         int dest;
@@ -39,26 +39,20 @@ public class BFS {
         graph[5].add(new Edge(5,6));
 
         graph[6].add(new Edge(6,5));
-
     }
 
-    public static void bfs(ArrayList<Edge> graph[], int V, boolean vis[], int start){
-        Queue<Integer> q = new LinkedList<>();
-        q.add(start);
+    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]){
+        System.out.print(curr + " ");
+        vis[curr] = true;
 
-        while(!q.isEmpty()){
-            int curr = q.remove();
-            if(vis[curr] == false){
-                System.out.print(curr + " ");
-                vis[curr] = true;
-
-                for(int i=0; i<graph[curr].size(); i++){
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
+        for(int i=0; i<graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+            if(vis[e.dest] == false){
+                dfs(graph, e.dest, vis);
             }
         }
     }
+
     public static void main(String[] args) {
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
@@ -67,11 +61,11 @@ public class BFS {
 
         boolean vis[] = new boolean[V];
 
-            for(int i=0; i<V; i++){
-                if(vis[i] == false){
-                    bfs(graph, V, vis, i);
-                }
+        for(int i=0; i<V; i++){
+            if(vis[i] == false){
+                dfs(graph, i, vis);
             }
+        }
         System.out.println();
     }
 }

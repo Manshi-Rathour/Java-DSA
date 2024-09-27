@@ -1,8 +1,7 @@
 package Graph;
-
 import java.util.*;
 
-public class BFS {
+public class PrintAllPath {
     static class Edge{
         int src;
         int dest;
@@ -39,26 +38,25 @@ public class BFS {
         graph[5].add(new Edge(5,6));
 
         graph[6].add(new Edge(6,5));
-
     }
 
-    public static void bfs(ArrayList<Edge> graph[], int V, boolean vis[], int start){
-        Queue<Integer> q = new LinkedList<>();
-        q.add(start);
+    public static void printAllPath(ArrayList<Edge> graph[], boolean vis[], int curr, String path, int tar){
+        if(curr == tar){
+            System.out.println(path);
+            return;
+        }
 
-        while(!q.isEmpty()){
-            int curr = q.remove();
-            if(vis[curr] == false){
-                System.out.print(curr + " ");
+        for(int i=0; i<graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+
+            if(!vis[e.dest]){
                 vis[curr] = true;
-
-                for(int i=0; i<graph[curr].size(); i++){
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
+                printAllPath(graph, vis, e.dest, path + e.dest, tar);
+                vis[curr] = false;
             }
         }
     }
+
     public static void main(String[] args) {
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
@@ -67,11 +65,9 @@ public class BFS {
 
         boolean vis[] = new boolean[V];
 
-        for(int i=0; i<V; i++){
-            if(vis[i] == false){
-                bfs(graph, V, vis, i);
-            }
-        }
-        System.out.println();
+        int src = 0;
+        int tar = 5;
+
+        printAllPath(graph, vis, src, "0", tar);
     }
 }

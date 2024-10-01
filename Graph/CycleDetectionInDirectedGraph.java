@@ -1,7 +1,7 @@
 package Graph;
 import java.util.*;
 
-public class CycleDetection {
+public class CycleDetectionInDirectedGraph {
     static class Edge{
         int src;
         int dest;
